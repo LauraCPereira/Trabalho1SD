@@ -16,12 +16,14 @@ public class Servidor {
    try {
       ServerSocket server = new ServerSocket(1234);
       Socket clSocket = server.accept();
+      
       InputStream in = clSocket.getInputStream();
       InputStreamReader isr = new InputStreamReader(in);
       BufferedReader reader = new BufferedReader(isr);
+      
       File f1 = new File("/home/robson/pos/laura/Trabalho1SD/laura_recebido.txt");
       FileOutputStream out = new FileOutputStream(f1);
-          int tamanho = 4096; // buffer de 4KB  
+          int tamanho = 1024; // buffer de 4KB  
           byte[] buffer = new byte[tamanho];  
           int lidos = -1;  
           while ((lidos = in.read(buffer, 0, tamanho)) != -1) {  
